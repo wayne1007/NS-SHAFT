@@ -1,8 +1,8 @@
-// T10_Project_B : Let's Play Games!
-// ¥\¯à : ´£¨Ñµù¥Uµn¤J¥\¯à¡A¿ï¾Ü¹CÀ¸¨Ã±N³Ì°ª¦¨ÁZºâ¤J±Æ¦æº]
-// ¹CÀ¸ :	(1) ¤pªB¤Í¤U¼Ó±è  ( Developed by ¶À¬fµ¾ ) 
+// Let's Play Games!
+// åŠŸèƒ½ : æä¾›è¨»å†Šç™»å…¥åŠŸèƒ½ï¼Œé¸æ“‡éŠæˆ²ä¸¦å°‡æœ€é«˜æˆç¸¾ç®—å…¥æ’è¡Œæ¦œ
+// éŠæˆ² :	(1) å°æœ‹å‹ä¸‹æ¨“æ¢¯  ( Developed by é™³å¿ ç¿° ) 
 //	   		
-// ¶}µo®É¶¡ : 2020-06-07 ³Ì«á­×§ï®É¶¡¡G 2020-06-16
+// é–‹ç™¼æ™‚é–“ : 2021-06-07 æœ€å¾Œä¿®æ”¹æ™‚é–“ï¼š 2021-06-16
 
 #include <iostream>
 #include <fstream>
@@ -18,38 +18,38 @@
 
 using namespace std;
 
-//¤pªB¤Í¤U¼Ó±è
+//å°æœ‹å‹ä¸‹æ¨“æ¢¯
 class DOWNSTAIR {
 public:
 	DOWNSTAIR(int h, int w);			//constructor
 	~DOWNSTAIR() {						//distructor
-		for (int i = 0; i < MAX_H; ++i)	// ±N°ÊºA°t¸mªº°O¾ĞÅéÄÀ©ñ
+		for (int i = 0; i < MAX_H; ++i)	// å°‡å‹•æ…‹é…ç½®çš„è¨˜æ†¶é«”é‡‹æ”¾
 			delete[] map[i];
 		delete[] map;
 	}
 
-	void startGame();		// ¶}©l¹CÀ¸
-	void initailizeMap();	// ªì©l¤Æµe­±
-	void displayTheMap();	// ¿é¥Xµe­±
-	void movePos();			// ²¾°Ê¤Hª«
-	void game();			// ¹CÀ¸¥»Åé
-	void update();			// ¨Ï¦a¹Ï«ùÄò©¹¤W°Ê
-	bool isFlying();		// §PÂ_¤Hª«¬O§_ÄaªÅ
-	bool isEdge(int);		// §PÂ_¥ª¥k¬O§_¬OÀğ¾À
-	bool isDead();			// §PÂ_¬O§_¦º¤`
+	void startGame();		// é–‹å§‹éŠæˆ²
+	void initailizeMap();	// åˆå§‹åŒ–ç•«é¢
+	void displayTheMap();	// è¼¸å‡ºç•«é¢
+	void movePos();			// ç§»å‹•äººç‰©
+	void game();			// éŠæˆ²æœ¬é«”
+	void update();			// ä½¿åœ°åœ–æŒçºŒå¾€ä¸Šå‹•
+	bool isFlying();		// åˆ¤æ–·äººç‰©æ˜¯å¦æ‡¸ç©º
+	bool isEdge(int);		// åˆ¤æ–·å·¦å³æ˜¯å¦æ˜¯ç‰†å£
+	bool isDead();			// åˆ¤æ–·æ˜¯å¦æ­»äº¡
 	int getScore() { return score; }
 
 private:
-	int MAX_H;				// ¦a¹Ï°ª«×
-	int MAX_W;				// ¦a¹Ï¼e«×
-	int **map;				// ¦s©ñ¦a¹Ïªº«ü¼Ğ ( ¤Gºû°}¦C )
-	int playerPosition_x;	// ¤Hª«ªº x ®y¼Ğ ( ¾î¦V®y¼Ğ ) 
-	int playerPosition_y;	// ¤Hª«ªº y ®y¼Ğ ( ««ª½®y¼Ğ )
-	int score;				// ¤À¼Æ
-	string shap[7] = { "¢ä","¡U","¡s","¡@","¡×","¢İ" }; // ¦a¹Ï¤¤¦Uª«Åé¤§¹Ï§Î
+	int MAX_H;				// åœ°åœ–é«˜åº¦
+	int MAX_W;				// åœ°åœ–å¯¬åº¦
+	int **map;				// å­˜æ”¾åœ°åœ–çš„æŒ‡æ¨™ ( äºŒç¶­é™£åˆ— )
+	int playerPosition_x;	// äººç‰©çš„ x åº§æ¨™ ( æ©«å‘åº§æ¨™ ) 
+	int playerPosition_y;	// äººç‰©çš„ y åº§æ¨™ ( å‚ç›´åº§æ¨™ )
+	int score;				// åˆ†æ•¸
+	string shap[7] = { "ï¼¶","ï½œ","ï¸¿","ã€€","ï¼","ï¼¯" }; // åœ°åœ–ä¸­å„ç‰©é«”ä¹‹åœ–å½¢
 };
 
-// ·|­û¸ê®Æ
+// æœƒå“¡è³‡æ–™
 struct MemberRecord {
 	char name[40];
 	char password[20];
@@ -57,7 +57,7 @@ struct MemberRecord {
 	char IDNumber[10];
 };
 
-// ±Æ¦æº]
+// æ’è¡Œæ¦œ
 struct RankRecord {
 	char game[30];
 	char IDNumber[5][10];
@@ -65,42 +65,42 @@ struct RankRecord {
 };
 
 //bool bigger(int a, int b) { return a > b; }	
-void printGame(const RankRecord rankTable);				// ¦L¥X¸Ó±Æ¦æº]ªº¹CÀ¸¦WºÙ
-void printID(const RankRecord rankTable, int index);	// ¦L¥X±Æ¦æº]¤W¸Ó¦W¦¸ªº¤HªºID
-void sort(RankRecord &rankTable);						// ±N±Æ¦æº]¨Ì·Ó¤À¼Æ±Æ§Ç
+void printGame(const RankRecord rankTable);				// å°å‡ºè©²æ’è¡Œæ¦œçš„éŠæˆ²åç¨±
+void printID(const RankRecord rankTable, int index);	// å°å‡ºæ’è¡Œæ¦œä¸Šè©²åæ¬¡çš„äººçš„ID
+void sort(RankRecord &rankTable);						// å°‡æ’è¡Œæ¦œä¾ç…§åˆ†æ•¸æ’åº
 
-void loadMemberInfo(MemberRecord memberDetails[], int &numMembers);					// ±qÀÉ®×Åª¤J©Ò¦³·|­û¸ê®Æ
-void loadRank(RankRecord rankTable[], int &numGames);								// ±qÀÉ®×Åª¤J±Æ¦æº]
-void signIn(MemberRecord memberDetails[], int &numMembers,							// ¨Ï¥ÎªÌµn¤J ¨Ã¥i¿ï¾Ü¨Ï¥ÎªÌ¥\¯à
+void loadMemberInfo(MemberRecord memberDetails[], int &numMembers);					// å¾æª”æ¡ˆè®€å…¥æ‰€æœ‰æœƒå“¡è³‡æ–™
+void loadRank(RankRecord rankTable[], int &numGames);								// å¾æª”æ¡ˆè®€å…¥æ’è¡Œæ¦œ
+void signIn(MemberRecord memberDetails[], int &numMembers,							// ä½¿ç”¨è€…ç™»å…¥ ä¸¦å¯é¸æ“‡ä½¿ç”¨è€…åŠŸèƒ½
 	RankRecord rankTable[], int &numTables);
-bool illegal(char email[], char password[],											// §PÂ_µn¤J¸ê®Æ¬O§_¿ù»~
+bool illegal(char email[], char password[],											// åˆ¤æ–·ç™»å…¥è³‡æ–™æ˜¯å¦éŒ¯èª¤
 	MemberRecord memberDetails[], int numMembers, int &recordNumber);
-void accountInfor(MemberRecord memberDetails[], int numMembers, int recordNumber);	// Åı¨Ï¥ÎªÌ§ó§ï·|­û¸ê®Æ
-void newMember(MemberRecord memberDetails[], int &numMembers);						// µù¥U·|­û
-bool existingID(char newID[], MemberRecord memberDetails[], int &numMembers);		// §PÂ_ID¬O§_¤w¦s¦b
-bool existingEmail(char newEmail[], MemberRecord memberDetails[], int &numMembers);	// §PÂ_email¬O§_¤w¦s¦b
+void accountInfor(MemberRecord memberDetails[], int numMembers, int recordNumber);	// è®“ä½¿ç”¨è€…æ›´æ”¹æœƒå“¡è³‡æ–™
+void newMember(MemberRecord memberDetails[], int &numMembers);						// è¨»å†Šæœƒå“¡
+bool existingID(char newID[], MemberRecord memberDetails[], int &numMembers);		// åˆ¤æ–·IDæ˜¯å¦å·²å­˜åœ¨
+bool existingEmail(char newEmail[], MemberRecord memberDetails[], int &numMembers);	// åˆ¤æ–·emailæ˜¯å¦å·²å­˜åœ¨
 
-void gameList(MemberRecord &memberDetails, RankRecord rankTable[], int &numTables);	// ´£¨Ñ¹CÀ¸¦Cªí
-void downStairGame(MemberRecord &memberDetails, RankRecord &rankTable);				// ¤pªB¤Í¤U¼Ó±è
-void displayRanks(RankRecord rankTable[], int numRanks);							// ®i¥Ü±Æ¦æº]
+void gameList(MemberRecord &memberDetails, RankRecord rankTable[], int &numTables);	// æä¾›éŠæˆ²åˆ—è¡¨
+void downStairGame(MemberRecord &memberDetails, RankRecord &rankTable);				// å°æœ‹å‹ä¸‹æ¨“æ¢¯
+void displayRanks(RankRecord rankTable[], int numRanks);							// å±•ç¤ºæ’è¡Œæ¦œ
 
 
-void saveMemberInfo(MemberRecord memberDetails[], int numMembers);					// Àx¦s·|­û¸ê®Æ¨ìÀÉ®×
-void saveRank(RankRecord rankTable[], int &numGames);								// Àx¦s±Æ¦æº]¨ìÀÉ®×
+void saveMemberInfo(MemberRecord memberDetails[], int numMembers);					// å„²å­˜æœƒå“¡è³‡æ–™åˆ°æª”æ¡ˆ
+void saveRank(RankRecord rankTable[], int &numGames);								// å„²å­˜æ’è¡Œæ¦œåˆ°æª”æ¡ˆ
 
 int main()
 {
-	srand(time(0));								// ¶Ã¼ÆºØ¤l
+	srand(time(0));								// äº‚æ•¸ç¨®å­
 
 	MemberRecord memberDetails[20] = {};
 	int numMembers = 0;
-	loadMemberInfo(memberDetails, numMembers);	// Åª¨ú·|­û¸ê®Æ
+	loadMemberInfo(memberDetails, numMembers);	// è®€å–æœƒå“¡è³‡æ–™
 
 	RankRecord rankTable[5] = {};
-	//memcpy(rankTable[0].game, "¤pªB¤Í¤U¼Ó±è", strlen("¤pªB¤Í¤U¼Ó±è"));
-	//memcpy(rankTable[1].game, "ºqµü±Æ¦C", strlen("ºqµü±Æ¦C"));
+	//memcpy(rankTable[0].game, "å°æœ‹å‹ä¸‹æ¨“æ¢¯", strlen("å°æœ‹å‹ä¸‹æ¨“æ¢¯"));
+	//memcpy(rankTable[1].game, "æ­Œè©æ’åˆ—", strlen("æ­Œè©æ’åˆ—"));
 	int numTables = 0;
-	loadRank(rankTable, numTables);				// Åª¨ú±Æ¦æº]
+	loadRank(rankTable, numTables);				// è®€å–æ’è¡Œæ¦œ
 
 	cout << "Welcome to T10 Project_B : Let's Play Game!" << endl;
 
@@ -108,7 +108,7 @@ int main()
 
 	while (true)
 	{
-		// ¨Ï¥ÎªÌ¿ï³æ
+		// ä½¿ç”¨è€…é¸å–®
 		cout << "\nEnter your choice:" << endl;
 		cout << "1. Sign In\n";
 		cout << "2. New Member\n";
@@ -118,15 +118,15 @@ int main()
 
 		switch (choice)
 		{
-		case 1:	// µn¤J
+		case 1:	// ç™»å…¥
 			signIn(memberDetails, numMembers, rankTable, numTables);
 			break;
 
-		case 2:	// µù¥U·s·|­û
+		case 2:	// è¨»å†Šæ–°æœƒå“¡
 			newMember(memberDetails, numMembers);
 			break;
 
-		case 3:	// Àx¦s¨ÃÂ÷¶}
+		case 3:	// å„²å­˜ä¸¦é›¢é–‹
 			saveMemberInfo(memberDetails, numMembers);
 			saveRank(rankTable, numTables);
 			cout << "Thank you...\n\n";
@@ -141,10 +141,10 @@ int main()
 	return 0;
 }
 
-// ±qÀÉ®×Åª¤J©Ò¦³·|­û¸ê®Æ
+// å¾æª”æ¡ˆè®€å…¥æ‰€æœ‰æœƒå“¡è³‡æ–™
 void loadMemberInfo(MemberRecord memberDetails[], int &numMembers)
 {
-	// ¥H¤G¤¸ÀÉ¶}±Ò
+	// ä»¥äºŒå…ƒæª”é–‹å•Ÿ
 	ifstream inMemberDetails("memberData.dat", ios::in | ios::binary);
 
 	if (!inMemberDetails) {
@@ -153,44 +153,44 @@ void loadMemberInfo(MemberRecord memberDetails[], int &numMembers)
 	}
 	else{
 
-	// ±N·|­û¸ê®Æ¤@µ§¤@µ§Åª¤J ¦P®É­pºâ·|­û¼Æ
+	// å°‡æœƒå“¡è³‡æ–™ä¸€ç­†ä¸€ç­†è®€å…¥ åŒæ™‚è¨ˆç®—æœƒå“¡æ•¸
 	while (inMemberDetails.read(reinterpret_cast<char *>(&memberDetails[numMembers]), sizeof(MemberRecord)))
 		++numMembers;
 }
 	inMemberDetails.close();
 }
 
-// ±qÀÉ®×Åª¤J±Æ¦æº]
+// å¾æª”æ¡ˆè®€å…¥æ’è¡Œæ¦œ
 void loadRank(RankRecord rankTable[], int &numGames)
 {
-	// ¥H¤G¤¸ÀÉ¶}±Ò
+	// ä»¥äºŒå…ƒæª”é–‹å•Ÿ
 	ifstream inRankTable("rankTable.dat", ios::in | ios::binary);
 
 	if (!inRankTable) {
-		memcpy(rankTable[0].game, "¤pªB¤Í¤U¼Ó±è", strlen("¤pªB¤Í¤U¼Ó±è"));
-		//memcpy(rankTable[1].game, "ºqµü±Æ¦C", strlen("ºqµü±Æ¦C"));
+		memcpy(rankTable[0].game, "å°æœ‹å‹ä¸‹æ¨“æ¢¯", strlen("å°æœ‹å‹ä¸‹æ¨“æ¢¯"));
+		//memcpy(rankTable[1].game, "æ­Œè©æ’åˆ—", strlen("æ­Œè©æ’åˆ—"));
 		numGames = 1;
 	}
 
-	else	// ±N±Æ¦æº]¸ê®Æ¤@µ§¤@µ§Åª¤J
+	else	// å°‡æ’è¡Œæ¦œè³‡æ–™ä¸€ç­†ä¸€ç­†è®€å…¥
 		while (inRankTable.read(reinterpret_cast<char *>(&rankTable[numGames]), sizeof(MemberRecord)))
 			++numGames;
 
 	inRankTable.close();
 }
 
-// ¨Ï¥ÎªÌµn¤J ¨Ã¥i¿ï¾Ü¨Ï¥ÎªÌ¥\¯à
+// ä½¿ç”¨è€…ç™»å…¥ ä¸¦å¯é¸æ“‡ä½¿ç”¨è€…åŠŸèƒ½
 void signIn(MemberRecord memberDetails[], int &numMembers, RankRecord rankTable[], int &numTables)
 {
 	char email[30] = {}, password[20] = {};
-	int recordNumber = 0;	// ¬ö¿ıµn¤J·|­û¤§¸ê®Æ¦ì¸m(index)
+	int recordNumber = 0;	// ç´€éŒ„ç™»å…¥æœƒå“¡ä¹‹è³‡æ–™ä½ç½®(index)
 
 	cout << "Enter email address: ";
 	cin >> email;
 	cout << "Enter password: ";
 	cin >> password;
 
-	// ¬O§_¦¨¥\µn¤J
+	// æ˜¯å¦æˆåŠŸç™»å…¥
 	int tryTimes = 3;
 	while (illegal(email, password, memberDetails, numMembers, recordNumber)) {
 		if (--tryTimes <= 0) {
@@ -213,7 +213,7 @@ void signIn(MemberRecord memberDetails[], int &numMembers, RankRecord rankTable[
 
 	system("CLS");
 	while (true) {
-		// ·|­û¥\¯à¿ï³æ
+		// æœƒå“¡åŠŸèƒ½é¸å–®
 		cout << "\nEnter your choice: " << endl;
 		cout << "1. Account Information" << endl;
 		cout << "2. Play Games" << endl;
@@ -224,17 +224,17 @@ void signIn(MemberRecord memberDetails[], int &numMembers, RankRecord rankTable[
 		cin >> choice;
 		switch (choice)
 		{
-		case 1:	// §ó§ï·|­û¸ê®Æ
+		case 1:	// æ›´æ”¹æœƒå“¡è³‡æ–™
 			accountInfor(memberDetails, numMembers, recordNumber);
 			break;
-		case 2:	// ¶i¤J¹CÀ¸¿ï³æ
+		case 2:	// é€²å…¥éŠæˆ²é¸å–®
 			gameList(memberDetails[recordNumber], rankTable, numTables);
 			break;
-		case 3:	// ¬d¬İ±Æ¦æº]
+		case 3:	// æŸ¥çœ‹æ’è¡Œæ¦œ
 			displayRanks(rankTable, numTables);
 			break;
 
-		case 4:	// µn¥X
+		case 4:	// ç™»å‡º
 			system("CLS");
 			cout << "\n\n<< Sign Out Successfully! >>\n\n";
 			system("pause");
@@ -248,13 +248,13 @@ void signIn(MemberRecord memberDetails[], int &numMembers, RankRecord rankTable[
 	}
 }
 
-// §PÂ_µn¤J¸ê®Æ¬O§_¿ù»~
+// åˆ¤æ–·ç™»å…¥è³‡æ–™æ˜¯å¦éŒ¯èª¤
 bool illegal(char email[], char password[], MemberRecord memberDetails[], int numMembers, int &recordNumber)
 {
 	for (int i = 0; i < numMembers; i++) {
-		// ¤ñ¹ï¥ş³¡·|­û¸ê®Æ¤¤ªºemail¦³µL¬Û²Å
+		// æ¯”å°å…¨éƒ¨æœƒå“¡è³‡æ–™ä¸­çš„emailæœ‰ç„¡ç›¸ç¬¦
 		if (memcmp(email, memberDetails[i].email, 30) == 0)
-			// ¤ñ¹ï¸Óemailªº±K½X¬O§_¥¿½T
+			// æ¯”å°è©²emailçš„å¯†ç¢¼æ˜¯å¦æ­£ç¢º
 			if (memcmp(password, memberDetails[i].password, 20) == 0) {
 				recordNumber = i;
 				return false;
@@ -263,16 +263,16 @@ bool illegal(char email[], char password[], MemberRecord memberDetails[], int nu
 	return true;
 }
 
-// Åı¨Ï¥ÎªÌ§ó§ï·|­û¸ê®Æ
+// è®“ä½¿ç”¨è€…æ›´æ”¹æœƒå“¡è³‡æ–™
 void accountInfor(MemberRecord memberDetails[], int numMembers, int recordNumber)
 {
-	// ·|­û¸ê®Æ
+	// æœƒå“¡è³‡æ–™
 	cout << "1. Name: " << memberDetails[recordNumber].name << endl;
 	cout << "2. Email Address: " << memberDetails[recordNumber].email << endl;
 	cout << "3. Password: " << memberDetails[recordNumber].password << endl;
 	cout << "4. ID Number: " << memberDetails[recordNumber].IDNumber << endl;
 
-	cout << "\nWhich one do you want to modify (0 ¡V not modify)? ";
+	cout << "\nWhich one do you want to modify (0 â€“ not modify)? ";
 	while (true) {
 		char email[30] = {}, ID[10] = {};
 
@@ -284,12 +284,12 @@ void accountInfor(MemberRecord memberDetails[], int numMembers, int recordNumber
 		case 0:	// do nothing
 			return;
 
-		case 1:	// §ó§ï¦W¦r
+		case 1:	// æ›´æ”¹åå­—
 			cout << "Enter correct data: ";
 			cin >> memberDetails[recordNumber].name;
 			return;
 
-		case 2:	// §ó§ïemail
+		case 2:	// æ›´æ”¹email
 			cout << "Enter correct data: ";
 			cin >> email;
 			while (existingEmail(email, memberDetails, numMembers)) {
@@ -300,12 +300,12 @@ void accountInfor(MemberRecord memberDetails[], int numMembers, int recordNumber
 			memcpy(memberDetails[recordNumber].email, email, 30);
 			return;
 
-		case 3:	// §ó§ï±K½X
+		case 3:	// æ›´æ”¹å¯†ç¢¼
 			cout << "Enter correct data: ";
 			cin >> memberDetails[recordNumber].password;
 			return;
 
-		case 4:	// §ó§ïID
+		case 4:	// æ›´æ”¹ID
 			cout << "Enter correct data: ";
 			cin >> ID;
 			while (existingID(ID, memberDetails, numMembers)) {
@@ -324,7 +324,7 @@ void accountInfor(MemberRecord memberDetails[], int numMembers, int recordNumber
 	}
 }
 
-// µù¥U·|­û
+// è¨»å†Šæœƒå“¡
 void newMember(MemberRecord memberDetails[], int &numMembers)
 {
 	char email[30] = {}, id[10] = {};
@@ -358,7 +358,7 @@ void newMember(MemberRecord memberDetails[], int &numMembers)
 	numMembers++;
 }
 
-// §PÂ_ID¬O§_¤w¦s¦b
+// åˆ¤æ–·IDæ˜¯å¦å·²å­˜åœ¨
 bool existingID(char newID[], MemberRecord memberDetails[], int &numMembers)
 {
 	for (int i = 0; i < numMembers; i++) {
@@ -368,7 +368,7 @@ bool existingID(char newID[], MemberRecord memberDetails[], int &numMembers)
 	return false;
 }
 
-// §PÂ_email¬O§_¤w¦s¦b
+// åˆ¤æ–·emailæ˜¯å¦å·²å­˜åœ¨
 bool existingEmail(char newEmail[], MemberRecord memberDetails[], int &numMembers)
 {
 	for (int i = 0; i < numMembers; i++) {
@@ -378,10 +378,10 @@ bool existingEmail(char newEmail[], MemberRecord memberDetails[], int &numMember
 	return false;
 }
 
-// ´£¨Ñ¹CÀ¸¦Cªí
+// æä¾›éŠæˆ²åˆ—è¡¨
 void gameList(MemberRecord &memberDetails, RankRecord rankTable[], int &numTables)
 {
-	// ¹CÀ¸¿ï³æ
+	// éŠæˆ²é¸å–®
 	cout << "------------------------------------\n";
 	cout << " 1. "; printGame(rankTable[0]); cout << endl;
 	cout << "Which game do you want to play\n? ";
@@ -390,7 +390,7 @@ void gameList(MemberRecord &memberDetails, RankRecord rankTable[], int &numTable
 	cin >> choice;
 
 	switch (choice) {
-	case 1:	// ¤pªB¤Í¤U¼Ó±è
+	case 1:	// å°æœ‹å‹ä¸‹æ¨“æ¢¯
 		downStairGame(memberDetails, rankTable[0]);
 		break;
 	
@@ -400,23 +400,23 @@ void gameList(MemberRecord &memberDetails, RankRecord rankTable[], int &numTable
 	}
 }
 
-// ¤pªB¤Í¤U¼Ó±è
+// å°æœ‹å‹ä¸‹æ¨“æ¢¯
 void downStairGame(MemberRecord &memberDetails, RankRecord &rankTable)
 {
-	DOWNSTAIR newGame(15, 17);	// «Å§iª«¥ó
-	newGame.startGame();		//¶}©l¹CÀ¸
+	DOWNSTAIR newGame(15, 17);	// å®£å‘Šç‰©ä»¶
+	newGame.startGame();		//é–‹å§‹éŠæˆ²
 
 	int newScore = newGame.getScore();
 
-	// ­Y¤ñ²Ä¤­¦W(³Ì§C¤À)°ª¤À ¨ú¥N¤§ ¶i¤J±Æ¦æº]
+	// è‹¥æ¯”ç¬¬äº”å(æœ€ä½åˆ†)é«˜åˆ† å–ä»£ä¹‹ é€²å…¥æ’è¡Œæ¦œ
 	if (rankTable.score[4] < newScore) {
 		memcpy(rankTable.IDNumber[4], memberDetails.IDNumber, 10);
 		rankTable.score[4] = newScore;
-		sort(rankTable); //±Æ§Ç
+		sort(rankTable); //æ’åº
 	}
 }
 
-// ®i¥Ü±Æ¦æº]
+// å±•ç¤ºæ’è¡Œæ¦œ
 void displayRanks(RankRecord rankTable[], int numTables)
 {
 	int i = 0;
@@ -435,10 +435,10 @@ void displayRanks(RankRecord rankTable[], int numTables)
 	}
 }
 
-// Àx¦s·|­û¸ê®Æ
+// å„²å­˜æœƒå“¡è³‡æ–™
 void saveMemberInfo(MemberRecord memberDetails[], int numMembers)
 {
-	// ¥H¤G¤¸ÀÉ¶}±Ò
+	// ä»¥äºŒå…ƒæª”é–‹å•Ÿ
 	ofstream outMemberInfor("memberData.dat", ios::out | ios::binary);
 
 	if (!outMemberInfor) {
@@ -446,17 +446,17 @@ void saveMemberInfo(MemberRecord memberDetails[], int numMembers)
 		exit(1);
 	}
 
-	// Àx¦s¨Cµ§¸ê®Æ
+	// å„²å­˜æ¯ç­†è³‡æ–™
 	for (int i = 0; i < numMembers; i++) {
 		outMemberInfor.write(reinterpret_cast<char *>(&memberDetails[i]), sizeof(MemberRecord));
 	}
 	outMemberInfor.close();
 }
 
-// Àx¦s±Æ¦æº]¨ìÀÉ®×
+// å„²å­˜æ’è¡Œæ¦œåˆ°æª”æ¡ˆ
 void saveRank(RankRecord rankTable[], int &numGames)
 {
-	// ¥H¤G¤¸ÀÉ¶}±Ò
+	// ä»¥äºŒå…ƒæª”é–‹å•Ÿ
 	ofstream outRankTable("rankTable.dat", ios::out | ios::binary);
 
 	if (!outRankTable) {
@@ -464,14 +464,14 @@ void saveRank(RankRecord rankTable[], int &numGames)
 		exit(1);
 	}
 
-	// Àx¦s¨Cµ§¸ê®Æ
+	// å„²å­˜æ¯ç­†è³‡æ–™
 	for (int i = 0; i < numGames; i++) {
 		outRankTable.write(reinterpret_cast<char *>(&rankTable[i]), sizeof(MemberRecord));
 	}
 	outRankTable.close();
 }
 
-// ¦L¥X¸Ó±Æ¦æº]ªº¹CÀ¸¦WºÙ
+// å°å‡ºè©²æ’è¡Œæ¦œçš„éŠæˆ²åç¨±
 void printGame(const RankRecord rankTable)
 {
 	for (int i = 0; i < 30; ++i) {
@@ -481,7 +481,7 @@ void printGame(const RankRecord rankTable)
 	}
 }
 
-// ¦L¥X±Æ¦æº]¤W¸Ó¦W¦¸ªº¤HªºID
+// å°å‡ºæ’è¡Œæ¦œä¸Šè©²åæ¬¡çš„äººçš„ID
 void printID(const RankRecord rankTable, int index)
 {
 	for (int i = 0; i < 10; ++i) {
@@ -491,7 +491,7 @@ void printID(const RankRecord rankTable, int index)
 	}
 }
 
-// ±N±Æ¦æº]¨Ì·Ó¤À¼Æ±Æ§Ç
+// å°‡æ’è¡Œæ¦œä¾ç…§åˆ†æ•¸æ’åº
 void sort(RankRecord &rankTable)
 {
 	int toIndex = 5;
@@ -499,13 +499,13 @@ void sort(RankRecord &rankTable)
 	while (toIndex > 1) {
 		--toIndex;
 		for (int i = 0; i < toIndex; i++) {
-			// ¦pªG«e­±ªº¤¸¯À¤ñ«á­±ªº¤¸¯À­n¤p¡A«h¥æ´«¤¸¯À¦ì¸m
+			// å¦‚æœå‰é¢çš„å…ƒç´ æ¯”å¾Œé¢çš„å…ƒç´ è¦å°ï¼Œå‰‡äº¤æ›å…ƒç´ ä½ç½®
 			if (rankTable.score[i] < rankTable.score[i + 1]) {
 				int tmp = rankTable.score[i];
 				rankTable.score[i] = rankTable.score[i + 1];
 				rankTable.score[i + 1] = tmp;
 
-				// ID¸òµÛ¤À¼Æ²¾°Ê
+				// IDè·Ÿè‘—åˆ†æ•¸ç§»å‹•
 				char tmp2[10] = {};
 				memcpy(tmp2, rankTable.IDNumber[i], 10);
 				memcpy(rankTable.IDNumber[i], rankTable.IDNumber[i + 1], 10);
@@ -519,11 +519,11 @@ void sort(RankRecord &rankTable)
 DOWNSTAIR::DOWNSTAIR(int h, int w)
 	:MAX_H(h), MAX_W(w)
 {
-	// ³]©w¤Hª«ªì©l¦ì¸m
+	// è¨­å®šäººç‰©åˆå§‹ä½ç½®
 	playerPosition_y = (MAX_H + 1) / 4;
 	playerPosition_x = (MAX_W + 1) / 2;
 
-	//°ÊºA°t¸m°O¾ĞÅé
+	//å‹•æ…‹é…ç½®è¨˜æ†¶é«”
 	map = new int*[MAX_H];
 	for (int i = 0; i < MAX_H; ++i) {
 		map[i] = new int[MAX_W];
@@ -531,46 +531,46 @@ DOWNSTAIR::DOWNSTAIR(int h, int w)
 
 }
 
-// ¶}©l¹CÀ¸
+// é–‹å§‹éŠæˆ²
 void DOWNSTAIR::startGame()
 {
-	this->initailizeMap();	// ªì©l¤Æ¦a¹Ï
+	this->initailizeMap();	// åˆå§‹åŒ–åœ°åœ–
 
-	// ¦h°õ¦æÄò
-	thread t1(&DOWNSTAIR::movePos, this);// ±±¨î¤Hª«²¾°Ê
-	thread t2(&DOWNSTAIR::update, this); // ±±¨îµe­±²¾°Ê
+	// å¤šåŸ·è¡ŒçºŒ
+	thread t1(&DOWNSTAIR::movePos, this);// æ§åˆ¶äººç‰©ç§»å‹•
+	thread t2(&DOWNSTAIR::update, this); // æ§åˆ¶ç•«é¢ç§»å‹•
 
-	this->game();// ¶i¤J¹CÀ¸
+	this->game();// é€²å…¥éŠæˆ²
 
-	t1.join();// µ¥«İt1µ²§ô
-	t2.join();// µ¥«İt2µ²§ô
+	t1.join();// ç­‰å¾…t1çµæŸ
+	t2.join();// ç­‰å¾…t2çµæŸ
 }
 
-// ªì©l¤Æµe­±
+// åˆå§‹åŒ–ç•«é¢
 void DOWNSTAIR::initailizeMap()
 {
 
-	// ¤W¬É
+	// ä¸Šç•Œ
 	for (int j = 0; j < MAX_W; ++j)
 		map[0][j] = 0;
 
-	// ¨â°¼Ãä¬É
+	// å…©å´é‚Šç•Œ
 	for (int i = 1; i < MAX_H - 1; ++i) {
 		map[i][0] = 1;
 		map[i][MAX_W - 1] = 1;
 	}
 
-	//	¤U¬É
+	//	ä¸‹ç•Œ
 	for (int j = 0; j < MAX_W; ++j)
 		map[MAX_H - 1][j] = 2;
 
-	// ¤º³¡¶ñªÅ
+	// å…§éƒ¨å¡«ç©º
 	for (int i = 1; i < MAX_H - 1; ++i) {
 		for (int j = 1; j < MAX_W - 1; ++j)
 			map[i][j] = 3;
 	}
 
-	// ÀH¾÷²£¥Í¦aªO ( ªø«×¬° 3 )
+	// éš¨æ©Ÿç”¢ç”Ÿåœ°æ¿ ( é•·åº¦ç‚º 3 )
 	for (int i = 6; i < MAX_H; i += 3)
 		for (int j = rand() % 3 + 1; j < MAX_W - 3; ++j) {
 			if (!(rand() % 4)) {
@@ -582,7 +582,7 @@ void DOWNSTAIR::initailizeMap()
 		}
 }
 
-// Åã¥Üµe­±
+// é¡¯ç¤ºç•«é¢
 void DOWNSTAIR::displayTheMap()
 {
 	system("CLS");
@@ -595,28 +595,28 @@ void DOWNSTAIR::displayTheMap()
 		cout << endl;
 	}
 
-	cout << "¥Ø«e±o¤À: " << setw(6) << setfill('0') << score << endl;;
+	cout << "ç›®å‰å¾—åˆ†: " << setw(6) << setfill('0') << score << endl;;
 }
 
-// ±±¨î¨¤¦â²¾°Ê
+// æ§åˆ¶è§’è‰²ç§»å‹•
 void DOWNSTAIR::movePos()
 {
 	int direct;
 	while (!isDead()) {
-		// ¤è¦VÁä¥Ñ¨â½X²Õ¦¨
+		// æ–¹å‘éµç”±å…©ç¢¼çµ„æˆ
 		direct = _getch();
-		direct = _getch();	//Åª¨ú¤è¦V½X
+		direct = _getch();	//è®€å–æ–¹å‘ç¢¼
 		switch (direct)
 		{
-		case 75:	// ¦V¥ª
+		case 75:	// å‘å·¦
 			if (!isEdge(direct))
 				--playerPosition_x;
 			break;
-		case 77:	// ¦V¥k
+		case 77:	// å‘å³
 			if (!isEdge(direct))
 				++playerPosition_x;
 			break;
-		case 80:	// ¦V¤U ÄaªÅ¦V¤U¥i¥[¤À
+		case 80:	// å‘ä¸‹ æ‡¸ç©ºå‘ä¸‹å¯åŠ åˆ†
 			if (isFlying()) {
 				++playerPosition_y;
 				score += 3;
@@ -628,22 +628,22 @@ void DOWNSTAIR::movePos()
 	}
 }
 
-// ¶i¦æ¹CÀ¸
+// é€²è¡ŒéŠæˆ²
 void DOWNSTAIR::game()
 {
-	// ¬ö¿ı®É¶¡
+	// ç´€éŒ„æ™‚é–“
 	clock_t a, b, c;
 	a = clock();
 
 	while (!isDead()) {
 		b = clock();
-		//¨C¹j0.1¬í§ó·sµe­±
+		//æ¯éš”0.1ç§’æ›´æ–°ç•«é¢
 		if (b - a > 250) {
 			displayTheMap();
 			b = a;
 		}
 
-		//¤Hª«ÄaªÅ®É ¦Û°Ê¸¨¤U
+		//äººç‰©æ‡¸ç©ºæ™‚ è‡ªå‹•è½ä¸‹
 		while (isFlying()) {
 			c = clock();
 			if (c - a > 221) {
@@ -654,11 +654,11 @@ void DOWNSTAIR::game()
 		}
 	}
 
-	cout << "§A¦º¤F!  ³Ì«á±o¤À: " << this->getScore() << endl;
-	cout << "«ö¥ô·N¤è¦VÁäÂ÷¶}!\n";
+	cout << "ä½ æ­»äº†!  æœ€å¾Œå¾—åˆ†: " << this->getScore() << endl;
+	cout << "æŒ‰ä»»æ„æ–¹å‘éµé›¢é–‹!\n";
 }
 
-// ¨Ïµe­±¦Û°Ê¦V¤W±²°Ê
+// ä½¿ç•«é¢è‡ªå‹•å‘ä¸Šæ²å‹•
 void DOWNSTAIR::update()
 {
 	clock_t a, b, c;
@@ -668,7 +668,7 @@ void DOWNSTAIR::update()
 	while (!isDead()) {
 
 		b = clock();
-		// ¨C0.3¬í ¾ã­Ó¦a¹Ï¦V¤W¤@¦C
+		// æ¯0.3ç§’ æ•´å€‹åœ°åœ–å‘ä¸Šä¸€åˆ—
 		if (b - a > 309) {
 			if (!isFlying()) {
 				--playerPosition_y;
@@ -677,10 +677,10 @@ void DOWNSTAIR::update()
 				for (int j = 1; j < MAX_W - 1; ++j)
 					map[i][j] = map[i + 1][j];
 
-			score += 3; //¤À¼ÆÀH®É¶¡¼W¥[
+			score += 3; //åˆ†æ•¸éš¨æ™‚é–“å¢åŠ 
 
-			// ·s¼W³Ì©³¤Uªº¦aªO
-			// ¨C¨â¦æ¤~²£¥Í¦aªO
+			// æ–°å¢æœ€åº•ä¸‹çš„åœ°æ¿
+			// æ¯å…©è¡Œæ‰ç”¢ç”Ÿåœ°æ¿
 			if (flag) {
 				for (int j = rand() % 3 + 1; j < MAX_W - 3; ++j)
 					if (rand() % 4 == 0) {
@@ -694,14 +694,14 @@ void DOWNSTAIR::update()
 				for (int j = 1; j < MAX_W - 1; ++j)
 					map[MAX_H - 2][j] = 3;
 			}
-			//¨C¦¸§ïÅÜ flag ª¬ºA
+			//æ¯æ¬¡æ”¹è®Š flag ç‹€æ…‹
 			flag ? flag = 0 : flag = 1;
 			a = b;
 		}
 	}
 }
 
-// §PÂ_¤Hª«¬O§_ÄaªÅ
+// åˆ¤æ–·äººç‰©æ˜¯å¦æ‡¸ç©º
 bool DOWNSTAIR::isFlying()
 {
 	if (map[playerPosition_y + 1][playerPosition_x] == 3)
@@ -709,7 +709,7 @@ bool DOWNSTAIR::isFlying()
 	return 0;
 }
 
-// §PÂ_¥ª¥k²¾°Ê¬O§_¼²¨ìÀğ¾À©Î¦aªO
+// åˆ¤æ–·å·¦å³ç§»å‹•æ˜¯å¦æ’åˆ°ç‰†å£æˆ–åœ°æ¿
 bool DOWNSTAIR::isEdge(int direct)
 {
 	if ((direct == 77 && map[playerPosition_y][playerPosition_x + 1] == 4) || (direct == 75 && map[playerPosition_y][playerPosition_x - 1] == 4))
@@ -720,7 +720,7 @@ bool DOWNSTAIR::isEdge(int direct)
 
 }
 
-// §PÂ_¬O§_¸I¨ì¤W¬É©Î¤U¬É
+// åˆ¤æ–·æ˜¯å¦ç¢°åˆ°ä¸Šç•Œæˆ–ä¸‹ç•Œ
 bool DOWNSTAIR::isDead()
 {
 	if (playerPosition_y == 0 || playerPosition_y == MAX_H - 2)
